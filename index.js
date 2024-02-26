@@ -16,7 +16,7 @@
 
 
 const express = require('express');
-const supabase = require('../backend/database/db');
+const supabase = require('./database/db');
 
 const app = express();
 app.use(express.json());
