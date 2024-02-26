@@ -5,7 +5,7 @@ const { test, getBooks, admindata } = require('../controllers/authcontroller');
 
 router.use(
     cors({
-        origin: ['http://localhost:3000' || 'https://library-front-nine.vercel.app/'],
+        origin: ['http://localhost:3000' || 'https://library-front-nine.vercel.app'],
         credentials : true
     })
 )
