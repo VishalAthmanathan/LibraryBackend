@@ -69,11 +69,11 @@ const getBooks = async (req, res) => {
 };
 
 const admindata = async (req, res) => {
-    const { id, bookname, author, genre, publishdate } = req.body;
-    console.log(id, bookname, author, genre, publishdate);
+    const { id, bookname, author, genre, publishedyear } = req.body;
+    console.log(id, bookname, author, genre, publishedyear);
     try {
         const { data, error } = await supabase.from('librarybooks').insert([
-            { id, bookname, genre, publishdate, author }
+            { id, bookname, genre, author, publishedyear }
         ]);
         if (error) {
             console.error('Error executing query:', error.message);
