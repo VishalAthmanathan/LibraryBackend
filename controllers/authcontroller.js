@@ -87,8 +87,32 @@ const admindata = async (req, res) => {
     }
 }
 
+const deleteItem = async (req, res) => {
+    const id = req.body.id;
+  
+    try {
+      const { data, error } = await supabase
+        .from('librarybooks')
+        .delete()
+        .eq('id', id);
+  
+      if (error) {
+        console.error('Error executing query:', error.message);
+        return res.status(500).json({ error: 'Server error' });
+      }
+  
+      console.log('Data is deleted successfully');
+      return res.status(200).json('Deleted from DB Successfully');
+    } catch (error) {
+      console.error('Error executing query:', error.message);
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+  };
+  
+
 module.exports = {
     test,
     getBooks,
-    admindata
+    admindata,
+    deleteItem
 }
